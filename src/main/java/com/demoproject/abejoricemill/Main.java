@@ -7,14 +7,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
+    private Stage stage;
+    private Scene scene;
+
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("main-view.fxml"));
+        stage.setTitle("Abejo Rice Mill | v1");
+        this.scene = new Scene(fxmlLoader.load(), 1440, 760);
+        stage.setScene(this.scene);
         stage.show();
+        this.stage = stage;
     }
 
     public static void main(String[] args) {
