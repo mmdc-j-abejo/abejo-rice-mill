@@ -103,7 +103,6 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane fx:id="anchorpaneMain" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <GridPane>

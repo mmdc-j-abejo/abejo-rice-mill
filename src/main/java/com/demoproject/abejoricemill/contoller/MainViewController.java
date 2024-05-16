@@ -13,12 +13,6 @@ import java.io.IOException;
 public class MainViewController {
 
     @FXML
-    private AnchorPane anchorpaneMain;
-
-    @FXML
-    private AnchorPane anchorpaneNavigation;
-
-    @FXML
     private BorderPane borderPane;
 
     @FXML
@@ -62,21 +56,28 @@ public class MainViewController {
                 case "Add new employee":
                     this.lbl_fxml_path.setText("/ Employee / Add New Employee /");
                     loadBorderPaneRight("/com/demoproject/abejoricemill/add-new-employee.fxml");
-
                     break;
             }
+        }
+    }
+
+    private void loadBorderPaneLeft(String fxmlFileName) {
+        try {
+            AnchorPane loader = FXMLLoader.load(getClass().getResource(fxmlFileName));
+            this.borderPane.setLeft(loader);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     private void loadBorderPaneRight(String fxmlFileName) {
         try {
             AnchorPane loader = FXMLLoader.load(getClass().getResource(fxmlFileName));
-            borderPane.setRight(loader);
+            this.borderPane.setRight(loader);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     @FXML
     void molinoEvent(ActionEvent event) {
         if (event.getSource() instanceof ComboBox) {
@@ -139,6 +140,7 @@ public class MainViewController {
         }
     }
 
+    @FXML
     public void settings(ActionEvent event) {
         if (event.getSource() instanceof ComboBox < ? > ) {
             ComboBox < String > comboBox = (ComboBox < String > ) event.getSource();
@@ -175,6 +177,7 @@ public class MainViewController {
         }
     }
 
+    @FXML
     public void machineMaintenanceEvent(ActionEvent event) {
         this.lbl_fxml_path.setText("/ Machine Maintenance /");
     }
