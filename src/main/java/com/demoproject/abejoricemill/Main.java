@@ -27,7 +27,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         scene = new Scene(loadFXML("main-view"), 1440, 760);
         stage.setScene(scene);
-        stage.setTitle("MotorPH Payroll System V1");
+        stage.setTitle("Abejo Rice Mill V1");
         stage.show();
     }
 }
