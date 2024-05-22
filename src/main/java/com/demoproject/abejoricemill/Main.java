@@ -1,4 +1,4 @@
-package com.demoproject.abejoricemill;//package com.demoproject.abejoricemill;
+package com.demoproject.abejoricemill;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static Scene scene;
+
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
@@ -24,10 +25,11 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         scene = new Scene(loadFXML("main-view"), 1440, 760);
         stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
-        Application.launch(Main.class,args);
+        Application.launch(Main.class, args);
     }
 }
