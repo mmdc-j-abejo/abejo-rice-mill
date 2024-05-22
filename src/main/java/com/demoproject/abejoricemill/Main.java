@@ -5,12 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 public class Main extends Application {
     private static Scene scene;
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
@@ -19,15 +20,14 @@ public class Main extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         scene = new Scene(loadFXML("main-view"), 1440, 760);
-        stage.setScene(scene);
-        stage.setTitle("Abejo Rice Mill V1");
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        Application.launch(Main.class,args);
     }
 }

@@ -1,12 +1,17 @@
 package com.demoproject.abejoricemill.contoller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -147,11 +152,11 @@ public class MainViewController {
             String selectedValue = comboBox.getValue();
 
             switch (selectedValue) {
-                case "Settings":
-                    this.lbl_fxml_path.setText("/ Settings /");
+                case "Documentation":
+                    this.lbl_fxml_path.setText("/ Documentation /");
                     break;
-                case "Database":
-                    this.lbl_fxml_path.setText("/ Database /");
+                case "Logout":
+                    Platform.exit();
                     break;
             }
         }
@@ -180,5 +185,17 @@ public class MainViewController {
     @FXML
     public void machineMaintenanceEvent(ActionEvent event) {
         this.lbl_fxml_path.setText("/ Machine Maintenance /");
+    }
+
+    public void minimizeClicked(MouseEvent mouseEvent) {
+        Node source = (Node) mouseEvent.getSource();
+        Window window = source.getScene().getWindow();
+        if (window instanceof Stage) {
+            ((Stage) window).setIconified(true);
+        }
+    }
+
+    public void exitClicked(MouseEvent mouseEvent) {
+        Platform.exit();
     }
 }
